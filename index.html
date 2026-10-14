@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>¿Cómo vamos? — Anotador de Truco, Generala, Tute y más</title>
-<meta name="description" content="App gratuita para anotar Truco, Generala, Tute, Burako, Carioca y Diez Mil. Sin registro, sin publicidad, 100% offline.">
+<title>¿Cómo vamos? — Anotador de Truco, Generala, Chinchón, Chancho y más</title>
+<meta name="description" content="Como Vamos: app gratuita para anotar Truco, Generala, Chinchón, Chancho, Las Bases, Diez Mil, Burako, Carioca y Tute. Sin registro, sin publicidad y funciona sin internet.">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="¿Cómo vamos? — el anotador para tus juegos de cartas y dados">
-<meta property="og:description" content="Truco, Generala, Tute, Burako, Carioca, Diez Mil. Gratis, sin registro, sin publicidad.">
+<meta property="og:description" content="Truco, Generala, Chinchón, Chancho, Las Bases, Diez Mil y más. Gratis, sin registro, sin publicidad.">
 <meta property="og:image" content="https://peurman.github.io/comovamos/og.png">
 <meta property="og:url" content="https://peurman.github.io/comovamos/">
 <meta name="twitter:card" content="summary_large_image">
 <style>
 @font-face{font-family:Fraunces;font-style:italic;font-weight:700;src:url(fonts/Fraunces_700Bold_Italic.ttf) format("truetype");font-display:swap}
 @font-face{font-family:JBMono;font-weight:500;src:url(fonts/JetBrainsMono_500Medium.ttf) format("truetype");font-display:swap}
-:root{--paper:#f3ede0;--deep:#ebe3cf;--ink:#1c1712;--soft:#3a2f24;--muted:#8a7a66;--accent:#b84f2e;--accent-dark:#92381e;--rule:rgba(28,23,18,.14)}
+:root{--paper:#f3ede0;--deep:#ebe3cf;--ink:#1c1712;--soft:#3a2f24;--muted:#8a7a66;--accent:#b84f2e;--accent-dark:#92381e;--rule:rgba(28,23,18,.14);--ribbon:#f5c84c}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.55;
  background-image:repeating-linear-gradient(transparent 0 31px,var(--rule) 31px 32px)}
@@ -35,12 +35,22 @@ h1 span{color:var(--accent)}
 .btn b{font-family:Fraunces,Georgia,serif;font-style:italic;font-size:22px}
 .btn.alt{background:var(--accent);border-color:var(--accent)}
 .shots{display:flex;gap:14px;overflow-x:auto;padding:30px 4px 12px;scroll-snap-type:x mandatory}
-.shots img{height:440px;width:auto;border-radius:22px;border:1px solid var(--rule);box-shadow:0 8px 22px rgba(28,23,18,.15);scroll-snap-align:center;flex:none}
+.shots img{height:440px;width:auto;border-radius:22px;border:1px solid var(--rule);box-shadow:0 8px 22px rgba(28,23,18,.15);scroll-snap-align:start;flex:none}
+.hint{text-align:center;margin:0}
 h2{font-family:Fraunces,Georgia,serif;font-style:italic;font-size:28px;margin:38px 0 8px}
+h2 small{font-family:JBMono,monospace;font-style:normal;font-size:12px;letter-spacing:.14em;color:var(--accent);vertical-align:middle;margin-left:8px}
+.news{background:var(--deep);border:1px solid var(--rule);border-radius:16px;padding:6px 20px 8px;margin:12px 0}
+.news ul{padding-left:20px;margin:10px 0}
+.news li{margin:6px 0;color:var(--soft)}
+.news b{color:var(--ink)}
 .games{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;padding:0;list-style:none;margin:12px 0}
-.games li{background:var(--deep);border:1px solid var(--rule);border-radius:14px;padding:12px 16px}
+.games li{position:relative;overflow:hidden;background:var(--deep);border:1px solid var(--rule);border-radius:14px;padding:12px 16px}
 .games b{font-family:Fraunces,Georgia,serif;font-style:italic;font-size:19px}
 .games span{display:block;font-size:14px;color:var(--soft)}
+.games .new{padding-right:60px}
+.games .new::after{content:"¡NUEVO!";position:absolute;top:13px;right:-30px;width:110px;transform:rotate(45deg);background:var(--ribbon);
+ font-family:JBMono,monospace;font-size:10px;letter-spacing:.1em;text-align:center;padding:2px 0;color:var(--ink)}
+.games .more{grid-column:1/-1;font-size:14px;color:var(--muted);background:transparent;border:0;padding:0 4px}
 footer{margin-top:44px;text-align:center}
 footer a{color:var(--accent-dark)}
 </style>
@@ -51,33 +61,54 @@ footer a{color:var(--accent-dark)}
   <img src="icon.png" alt="Ícono de ¿Cómo vamos?">
   <h1>¿Cómo <span>vamos?</span></h1>
   <p class="mono">anotalo acá</p>
-  <p class="lead">El anotador para las tardes de mate, playa y mesas de bar. Truco, Generala, Tute y más — sin papel ni lapicera.</p>
+  <p class="lead">El anotador para las tardes de mate, playa y mesas de bar. Truco, Generala, Chinchón, Chancho y más — sin papel ni lapicera.</p>
   <div class="cta">
     <a class="btn" href="https://play.google.com/store/apps/details?id=com.peurman.comovamos&amp;hl=es_AR"><small>Disponible en</small><b>Google Play</b></a>
     <a class="btn alt" href="https://apps.apple.com/ar/app/como-vamos/id6814896731"><small>Descargala en</small><b>App Store</b></a>
   </div>
-  <p class="mono">Gratis · sin registro · sin publicidad · offline</p>
+  <p class="mono">Gratis · sin registro · sin publicidad · funciona sin internet</p>
 </header>
 
 <div class="shots">
-  <img src="shot1.jpg" alt="Pantalla de inicio con los juegos" loading="lazy">
-  <img src="shot2.jpg" alt="Anotador de Truco con fósforos" loading="lazy">
-  <img src="shot3.jpg" alt="Planilla de Carioca" loading="lazy">
+  <img src="shot-home.jpg" alt="Pantalla de inicio con los juegos" loading="lazy">
+  <img src="shot-truco.jpg" alt="Truco 3 contra 3 con Pica Pica" loading="lazy">
+  <img src="shot-chinchon.jpg" alt="Planilla de Chinchón con cierres" loading="lazy">
+  <img src="shot-lasbases.jpg" alt="Planilla de Las Bases" loading="lazy">
+  <img src="shot-generala.jpg" alt="Planilla de Generala" loading="lazy">
+  <img src="shot-chancho.jpg" alt="Chancho con letras tachadas" loading="lazy">
+  <img src="shot-carioca.jpg" alt="Planilla de Carioca" loading="lazy">
+  <img src="shot-masjuegos.jpg" alt="Más juegos: Burako, Carioca y Tute" loading="lazy">
+</div>
+<p class="mono hint">deslizá para ver más →</p>
+
+<h2>Novedades <small>versión 1.1</small></h2>
+<div class="news">
+  <ul>
+    <li><b>Juegos nuevos:</b> Chancho, Chinchón y Las Bases.</li>
+    <li><b>Truco 3 contra 3 con Pica Pica:</b> el tablero marca la zona y avisa cuándo arranca y cuándo termina.</li>
+    <li><b>Planillas/anotadores más claros,</b> botones y popups con estilos renovados.</li>
+    <li><b>Revancha</b> conservando los mismos jugadores y la misma configuración.</li>
+    <li><b>¿Falta tu juego?</b> Pedilo desde la app, en "¿Sugerencias o mejoras?" (es anónimo).</li>
+  </ul>
 </div>
 
 <h2>Los juegos</h2>
 <ul class="games">
-  <li><b>Truco</b><span>Fósforos, a 15 o 30, con o sin flor</span></li>
-  <li><b>Generala</b><span>11 categorías, con servida</span></li>
+  <li><b>Truco</b><span>Fósforos, a 15 o 30, con o sin flor, hasta 3 contra 3</span></li>
+  <li><b>Generala</b><span>Todas las categorías, con servida</span></li>
+  <li class="new"><b>Chancho</b><span>C·H·A·N·C·H·O: elegís quién perdió la mano</span></li>
+  <li class="new"><b>Las Bases</b><span>De 1 carta al máximo y de vuelta a 1</span></li>
+  <li class="new"><b>Chinchón</b><span>A 70 o 100, con reenganche y cierres</span></li>
+  <li><b>Diez Mil</b><span>Acumulador con botones rápidos</span></li>
+  <li><b>Burako</b><span>4 o 6 manos, gana el que menos suma</span></li>
+  <li><b>Carioca</b><span>Las 7 manos, con "cortó"</span></li>
   <li><b>Tute cabrero</b><span>T·U·T·E y último en pie</span></li>
-  <li><b>Burako</b><span>Mano a mano, gana el que menos suma</span></li>
-  <li><b>Carioca</b><span>Las 7 manos canónicas</span></li>
-  <li><b>Diez Mil</b><span>Acumulador con regla de progreso</span></li>
   <li><b>A medida</b><span>Armá tu propio contador</span></li>
+  <li class="more">Burako, Carioca y Tute están en la sección "Más juegos" de la app.</li>
 </ul>
 
 <footer>
-  <p class="mono">Hecho en Mar del Plata por peurman</p>
+  <p class="mono">Hecho en Mar del Plata por Esteban "peurman" Manrupe</p>
   <p><a href="https://peurman.github.io/comovamos-legal/">Política de privacidad</a> · <a href="mailto:como.vamos.app@gmail.com">Contacto</a></p>
 </footer>
 </main>
